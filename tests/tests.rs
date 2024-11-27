@@ -32,3 +32,9 @@ fn clone_test() {
 fn to_dev_frac_test() {
   assert_eq!(Fraction::new(3, 4).to_dec_frac(), 0.75, "Converting into decimal fraction failed!");
 }
+
+#[test]
+fn reduce_test() {
+  assert_eq!(Fraction::new(2, 4).reduce(), Fraction::new(1, 2), "Reducing failed!");
+  assert_eq!(Fraction::new(5, 7).reduce(), Fraction::new(5, 7), "Irreducible fraction reduced!");
+}
