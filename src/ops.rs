@@ -16,3 +16,5 @@ impl std::ops::Div for Fraction {
     self * temp_frac
   }
 }
+
+// TODO: Имплементировать трейты std::ops::Add и std::ops::Sub
