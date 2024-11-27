@@ -35,6 +35,15 @@ fn to_dev_frac_test() {
 
 #[test]
 fn reduce_test() {
-  assert_eq!(Fraction::new(2, 4).reduce(), Fraction::new(1, 2), "Reducing failed!");
-  assert_eq!(Fraction::new(5, 7).reduce(), Fraction::new(5, 7), "Irreducible fraction reduced!");
+  let mut first = Fraction::new(2, 4);
+  first.reduce();
+  assert_eq!(first, Fraction::new(1, 2), "Reducing failed!");
+  first = Fraction::new(5, 7);
+  first.reduce();
+  assert_eq!(first, Fraction::new(5, 7), "Irreducible fraction reduced!");
+}
+
+#[test]
+fn partialeq_test() {
+  assert_eq!(Fraction::new(1, 2) == Fraction::new(2, 4), true, "PartialEq incorrectly implemented!");
 }

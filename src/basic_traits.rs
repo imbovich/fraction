@@ -17,6 +17,18 @@ impl std::fmt::Display for Fraction {
 
 impl std::fmt::Debug for Fraction {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-    write!(f, "{}/{}", self.0, self.1)
+    write!(f, "({}, {})", self.0, self.1)
+  }
+}
+
+impl PartialEq for Fraction {
+  fn eq(&self, other: &Self) -> bool {
+    let mut first = self.clone();
+    let mut second = other.clone();
+
+    first.reduce();
+    second.reduce();
+
+    (first.0 == second.0) && (first.1 == second.1)
   }
 }

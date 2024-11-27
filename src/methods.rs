@@ -9,15 +9,16 @@ impl Fraction {
     (self.0 as f64) / (self.1 as f64)
   }
 
-  pub fn reduce(&self) -> Fraction {
-    let mut a = self.0;
-    let mut b = self.1;
-    let mut r;
+  pub fn reduce(&mut self) {
+    let mut a: i64 = self.0;
+    let mut b: i64 = self.1;
+    let mut r: i64;
     while b > 0 {
       r = a % b;
       a = b;
       b = r;
     }
-    Fraction::new(self.0 / a, self.1 / a)
+    self.0 = self.0 / a;
+    self.1 = self.1 / a;
   }
 }

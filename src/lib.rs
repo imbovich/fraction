@@ -2,11 +2,6 @@ mod basic_traits;
 pub mod methods;
 mod ops;
 
-//Temporary solution
-// TODO make adekvatniy PartialEq
-
-#[derive(PartialEq)]
-
 pub struct Fraction(i64, i64);
 
 impl Fraction {
