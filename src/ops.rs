@@ -1,16 +1,5 @@
 use crate::Fraction;
 
-impl std::fmt::Display for Fraction {
-  fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-    write!(f, "{}/{}", self.0, self.1)
-  }
-}
-
-impl std::fmt::Debug for Fraction {
-  fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-    write!(f, "{}/{}", self.0, self.1)
-  }
-}
 impl std::ops::Mul for Fraction {
   type Output = Self;
   fn mul(self, rhs: Self) -> Self::Output {
