@@ -21,4 +21,28 @@ impl Fraction {
     self.0 = self.0 / a;
     self.1 = self.1 / a;
   }
+
+  pub fn gcd_denom(&self, other: &Fraction) -> i64 {
+    let mut denom1: i64 = self.1;
+    let mut denom2: i64 = other.1;
+    let mut r: i64;
+    while denom2 > 0 {
+      r = denom1 % denom2;
+      denom1 = denom2;
+      denom2 = r;
+    }
+    denom1
+  }
+
+  pub fn gcd_numer(&self, other: &Fraction) -> i64 {
+    let mut numer1: i64 = self.1;
+    let mut numer2: i64 = other.1;
+    let mut r: i64;
+    while numer2 > 0 {
+      r = numer1 % numer2;
+      numer1 = numer2;
+      numer2 = r;
+    }
+    numer1
+  }
 }

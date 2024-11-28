@@ -47,3 +47,17 @@ fn reduce_test() {
 fn partialeq_test() {
   assert_eq!(Fraction::new(1, 2) == Fraction::new(2, 4), true, "PartialEq incorrectly implemented!");
 }
+
+#[test]
+fn gcd_denom_test() {
+  let frac1 = Fraction::new(2, 4);
+  let frac2 = Fraction::new(4, 8);
+  assert_eq!(frac1.gcd_denom(&frac2), 4, "Incorrect gcd for denominator!");
+}
+
+#[test]
+fn gcd_numer_test() {
+  let frac1 = Fraction::new(2, 4);
+  let frac2 = Fraction::new(4, 8);
+  assert_eq!(frac1.gcd_numer(&frac2), 4, "Incorrect gcd for numerator!");
+}
