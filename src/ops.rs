@@ -24,28 +24,16 @@ impl std::ops::Add for Fraction {
   type Output = Self;
 
   fn add(self, rhs: Self) -> Self::Output {
-    let mut temp_frac1 = self;
-    let mut temp_frac2 = rhs;
     let lcm = lcm(self.1, rhs.1);
-    let first_multiplier = lcm / self.1;
-    let second_multiplier = lcm / rhs.1;
-    temp_frac1.0 = temp_frac1.0 * first_multiplier;
-    temp_frac2.0 = temp_frac2.0 * second_multiplier;
-    Fraction::new(temp_frac1.0 + temp_frac2.0, lcm)
+    Fraction::new((self.0 * (lcm / self.1)) + (rhs.0 * (lcm / rhs.1)), lcm)
   }
 }
 
 impl std::ops::Sub for Fraction {
   type Output = Self;
   fn sub(self, rhs: Self) -> Self::Output {
-    let mut temp_frac1 = self;
-    let mut temp_frac2 = rhs;
     let lcm = lcm(self.1, rhs.1);
-    let first_multiplier = lcm / self.1;
-    let second_multiplier = lcm / rhs.1;
-    temp_frac1.0 = temp_frac1.0 * first_multiplier;
-    temp_frac2.0 = temp_frac2.0 * second_multiplier;
-    Fraction::new(temp_frac1.0 - temp_frac2.0, lcm)
+    Fraction::new((self.0 * (lcm / self.1)) - (rhs.0 * (lcm / rhs.1)), lcm)
   }
 }
 // TODO: Оптимизировать Add и Sub
