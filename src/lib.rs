@@ -1,4 +1,5 @@
 mod basic_traits;
+pub mod funcs;
 pub mod methods;
 mod ops;
 

@@ -1,3 +1,4 @@
+use fraction::funcs::*;
 use fraction::Fraction;
 
 // ТЕСТЫ ДЛЯ ВСЕГО!!! Я хочу чтобы cargo выводил много ok
@@ -49,15 +50,25 @@ fn partialeq_test() {
 }
 
 #[test]
-fn gcd_denom_test() {
-  let frac1 = Fraction::new(2, 4);
-  let frac2 = Fraction::new(4, 8);
-  assert_eq!(frac1.gcd_denom(&frac2), 4, "Incorrect gcd for denominator!");
+fn gcd_test() {
+  assert_eq!(gcd(5, 10), 5, "GCD test failed!");
 }
 
 #[test]
-fn gcd_numer_test() {
-  let frac1 = Fraction::new(2, 4);
-  let frac2 = Fraction::new(4, 8);
-  assert_eq!(frac1.gcd_numer(&frac2), 4, "Incorrect gcd for numerator!");
+fn lcm_test() {
+  assert_eq!(lcm(4, 8), 8, "LCM test failed!");
+}
+
+#[test]
+fn add_test() {
+  assert_eq!(Fraction::new(1, 3) + Fraction::new(1, 6), Fraction::new(3, 6), "Adding fractions failed!");
+}
+
+#[test]
+fn sub_test() {
+  assert_eq!(
+    Fraction::new(1, 3) - Fraction::new(1, 6),
+    Fraction::new(1, 6),
+    "Substracting fractions failed!"
+  );
 }
